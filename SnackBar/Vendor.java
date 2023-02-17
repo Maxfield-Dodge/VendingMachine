@@ -89,6 +89,7 @@ public class Vendor
             change += (deposit-price);
             return true;
         }
+        change = deposit;
         return false;
     }
 
@@ -110,9 +111,11 @@ public class Vendor
         /*
         note that the coin class has a .getQuarters(), a .getDimes() etc etc (use the coin class!)
         */
-        
+        Coins changeAmount = new Coins(change);
 
-        String changeString="";
+        String changeString="Your change is: " + changeAmount.getQuarters() + " quarters, " +
+                changeAmount.getDimes() + " dimes, " + changeAmount.getNickles() + " nickles, and " +
+                changeAmount.getPennies() + " pennys.";
 
         return changeString;
     }
@@ -126,6 +129,8 @@ public class Vendor
     public static double getTotalSales()
     {
         //complete this
+        double temp = totalSales;
+        totalSales = 0;
         return totalSales;
     }
 }
