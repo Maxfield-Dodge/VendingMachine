@@ -84,12 +84,16 @@ public class Vendor
     public boolean makeSale()
     {
         //create the makesale method
-        if(stock > 0 && deposit >= price){
+        if (stock > 0 && deposit >= price){
             stock--;
-            change += (deposit-price);
+            deposit -= price;
+            change = deposit;
+            deposit = 0;
+            totalSales++;
             return true;
         }
         change = deposit;
+        deposit = 0;
         return false;
     }
 
@@ -105,9 +109,14 @@ public class Vendor
         return c;
     }
 
+    /**
+     * Returns the amount of each coin to print out to the user as their change.
+     * @return amount of change
+     */
     public String getChangeString()
     {
-        //From Ethan: create a get method that returns the amount and type of coins that should be returned by the machine
+        //From Ethan: create a get method that returns the amount and type of coins that
+        // should be returned by the machine
         /*
         note that the coin class has a .getQuarters(), a .getDimes() etc etc (use the coin class!)
         */
